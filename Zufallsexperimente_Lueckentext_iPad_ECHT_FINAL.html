@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Zufallsexperimente – Lückentext iPad</title>
+<style>
+  *{box-sizing:border-box}
+  body{font-family:Arial,sans-serif;background:#f4f7fb;margin:0;padding:14px;color:#222;-webkit-text-size-adjust:100%}
+  .container{max-width:1100px;margin:auto;background:#fff;padding:20px;border-radius:18px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+  h1{text-align:center;color:#1f4e79;margin-top:0}
+  .hint{background:#e8f3ff;border-left:6px solid #1f77b4;padding:12px;margin-bottom:14px;border-radius:8px;font-size:18px;line-height:1.35}
+  .warn{background:#fff3cd;border-left:6px solid #d39e00;padding:10px;margin-bottom:14px;border-radius:8px;font-size:16px;line-height:1.35}
+  h2{margin-bottom:8px}
+  #wordbank{display:flex;flex-wrap:wrap;gap:12px;background:#eef6ee;padding:15px;border-radius:12px;margin-bottom:22px;min-height:76px;position:relative;z-index:1}
+  .word{background:#2d89ef;color:white;padding:14px 18px;border-radius:14px;font-weight:bold;user-select:none;-webkit-user-select:none;touch-action:none;cursor:grab;font-size:18px;border:3px solid transparent;min-height:52px;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,.18)}
+  .word.selected{border-color:#ffcc00;background:#145da0;transform:scale(1.04)}
+  .text{font-size:21px;line-height:2.25}
+  .drop{display:inline-flex;align-items:center;justify-content:center;min-width:170px;min-height:42px;border:3px dashed #777;border-radius:10px;background:#fafafa;vertical-align:middle;padding:4px 10px;margin:2px;font-weight:bold;color:#111;position:relative;z-index:1;touch-action:manipulation}
+  .drop.filled{border-style:solid;background:#fff9db}
+  .drop.target{outline:5px solid #ffcc00;background:#fff1a8}
+  .correct{background:#c8f7c5!important;border-color:#1b8a3a!important}
+  .wrong{background:#ffd0d0!important;border-color:#cc0000!important}
+  .buttons{margin-top:16px}
+  button{font-size:18px;padding:12px 18px;border:0;border-radius:10px;margin:8px 8px 0 0;cursor:pointer;font-weight:bold;touch-action:manipulation}
+  #check{background:#1f77b4;color:white} #reset{background:#777;color:white} #solution{background:#2e8b57;color:white}
+  #feedback{margin-top:18px;font-size:22px;font-weight:bold}
+  .ghost{position:fixed;left:0;top:0;z-index:99999;pointer-events:none;opacity:.9;transform:translate(-50%,-50%);box-shadow:0 5px 15px rgba(0,0,0,.25)}
+  @media (max-width:700px){.container{padding:14px}.text{font-size:19px;line-height:2.35}.word{font-size:17px;padding:13px}.drop{min-width:145px;min-height:42px}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎲 Grundbegriffe der Wahrscheinlichkeitsrechnung</h1>
+<div class="hint"><b>Bedienung:</b> Ziehe ein Wort mit dem Finger in eine Lücke. Falls das nicht klappt: Wort antippen, dann Lücke antippen.</div>
+<div class="warn"><b>Wichtig auf dem iPad:</b> Diese Datei muss als echte Webseite in Safari/Chrome geöffnet werden. In der Dateien-App/Vorschau funktionieren solche Übungen oft nicht interaktiv.</div>
+<h2>📚 Wortspeicher</h2>
+<div id="wordbank">
+  <button type="button" class="word" data-word="Zufallsexperimente">Zufallsexperimente</button>
+  <button type="button" class="word" data-word="zufälligem">zufälligem</button>
+  <button type="button" class="word" data-word="mehrstufiges">mehrstufiges</button>
+  <button type="button" class="word" data-word="hintereinander">hintereinander</button>
+  <button type="button" class="word" data-word="Ergebnis">Ergebnis</button>
+  <button type="button" class="word" data-word="nicht">nicht</button>
+  <button type="button" class="word" data-word="vor">vor</button>
+  <button type="button" class="word" data-word="Ergebnisraum">Ergebnisraum</button>
+  <button type="button" class="word" data-word="Omega">Omega</button>
+  <button type="button" class="word" data-word="Menge">Menge</button>
+  <button type="button" class="word" data-word="Ereignis">Ereignis</button>
+</div>
+<div class="text">
+Versuche (= Experimente), die bei wiederholter Durchführung unter gleichen Bedingungen verschiedene Ausgänge haben können, heißen <span class="drop" data-answer="Zufallsexperimente"></span>.<br><br>
+Führt man mehrere Versuche mit <span class="drop" data-answer="zufälligem"></span> Ausgang nacheinander aus, so nennt man das ein <span class="drop" data-answer="mehrstufiges"></span> Zufallsexperiment.<br><br>
+Das kann die mehrfache Durchführung desselben Experiments sein oder auch das Durchführen zweier verschiedener Zufallsexperimente <span class="drop" data-answer="hintereinander"></span>.<br><br>
+Den Ausgang eines Zufallsexperiments nennt man <span class="drop" data-answer="Ergebnis"></span>. Man kann bei einem Zufallsexperiment das Ergebnis <span class="drop" data-answer="nicht"></span> vorhersagen, aber man kann schon <span class="drop" data-answer="vor"></span> der Durchführung alle möglichen Ergebnisse angeben.<br><br>
+Meistens fasst man alle möglichen Ergebnisse in einer Menge zusammen und nennt diese Menge <span class="drop" data-answer="Ergebnisraum"></span>. Er wird meistens mit dem griechischen Buchstaben Ω (= <span class="drop" data-answer="Omega"></span>) bezeichnet.<br><br>
+Manchmal ist man nur an bestimmten Ergebnissen interessiert. Diese kann man zu einer eigenen <span class="drop" data-answer="Menge"></span> zusammenfassen. Diese Menge nennt man dann <span class="drop" data-answer="Ereignis"></span>.
+</div>
+<div class="buttons">
+<button id="check" type="button">✅ Kontrollieren</button>
+<button id="reset" type="button">🔄 Neu starten</button>
+<button id="solution" type="button">👀 Lösung anzeigen</button>
+</div>
+<div id="feedback"></div>
+</div>
+<script>
+(function(){
+  var selectedWord=null, selectedButton=null, dragging=null, ghost=null, activePointer=null, currentTarget=null;
+  function qs(sel){return Array.prototype.slice.call(document.querySelectorAll(sel));}
+  function clearSelection(){ if(selectedButton) selectedButton.classList.remove('selected'); selectedWord=null; selectedButton=null; }
+  function makeWord(text){
+    var b=document.createElement('button'); b.type='button'; b.className='word'; b.dataset.word=text; b.textContent=text; attachWord(b); return b;
+  }
+  function returnWord(text){ document.getElementById('wordbank').appendChild(makeWord(text)); }
+  function putWordInDrop(word, drop){
+    if(!word || !drop) return;
+    var old=drop.textContent.trim();
+    if(old) returnWord(old);
+    drop.textContent=word;
+    drop.classList.add('filled');
+    drop.classList.remove('correct','wrong','target');
+    if(selectedButton && selectedButton.parentNode) selectedButton.parentNode.removeChild(selectedButton);
+    clearSelection();
+  }
+  function attachWord(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      if(selectedButton===btn){ clearSelection(); return; }
+      clearSelection(); selectedWord=btn.dataset.word; selectedButton=btn; btn.classList.add('selected');
+    }, false);
+    btn.addEventListener('pointerdown', function(e){
+      if(e.pointerType==='mouse' && e.button!==0) return;
+      activePointer=e.pointerId; dragging={button:btn, word:btn.dataset.word, moved:false, startX:e.clientX, startY:e.clientY};
+      btn.setPointerCapture && btn.setPointerCapture(e.pointerId);
+    }, false);
+    btn.addEventListener('pointermove', function(e){
+      if(!dragging || e.pointerId!==activePointer) return;
+      var dx=Math.abs(e.clientX-dragging.startX), dy=Math.abs(e.clientY-dragging.startY);
+      if(!dragging.moved && dx+dy>8){
+        dragging.moved=true;
+        ghost=dragging.button.cloneNode(true); ghost.classList.add('ghost'); document.body.appendChild(ghost);
+        dragging.button.style.visibility='hidden';
+      }
+      if(dragging.moved){
+        e.preventDefault();
+        ghost.style.left=e.clientX+'px'; ghost.style.top=e.clientY+'px';
+        var el=document.elementFromPoint(e.clientX,e.clientY); var d=el && el.closest ? el.closest('.drop') : null;
+        if(currentTarget && currentTarget!==d) currentTarget.classList.remove('target');
+        currentTarget=d; if(currentTarget) currentTarget.classList.add('target');
+      }
+    }, false);
+    btn.addEventListener('pointerup', function(e){
+      if(!dragging || e.pointerId!==activePointer) return;
+      var btn0=dragging.button, word=dragging.word, moved=dragging.moved;
+      if(ghost && ghost.parentNode) ghost.parentNode.removeChild(ghost);
+      ghost=null; btn0.style.visibility='visible';
+      var target=currentTarget;
+      if(currentTarget) currentTarget.classList.remove('target'); currentTarget=null;
+      dragging=null; activePointer=null;
+      if(moved && target){
+        selectedButton=btn0; selectedWord=word; putWordInDrop(word,target); if(btn0.parentNode) btn0.parentNode.removeChild(btn0);
+      }
+    }, false);
+    btn.addEventListener('pointercancel', function(){ if(ghost&&ghost.parentNode) ghost.parentNode.removeChild(ghost); if(dragging) dragging.button.style.visibility='visible'; if(currentTarget) currentTarget.classList.remove('target'); dragging=null; ghost=null; currentTarget=null; activePointer=null;}, false);
+  }
+  qs('.word').forEach(attachWord);
+  qs('.drop').forEach(function(drop){
+    drop.addEventListener('click', function(e){
+      e.preventDefault();
+      if(selectedWord) putWordInDrop(selectedWord, drop);
+    }, false);
+  });
+  document.getElementById('check').addEventListener('click', function(){
+    var correct=0,total=0; qs('.drop').forEach(function(d){total++; if(d.textContent.trim()===d.dataset.answer){correct++; d.classList.add('correct'); d.classList.remove('wrong');}else{d.classList.add('wrong'); d.classList.remove('correct');}});
+    var fb=document.getElementById('feedback'); fb.textContent= correct===total ? '🎉 Super! Alles richtig.' : 'Du hast '+correct+' von '+total+' richtig.'; fb.style.color= correct===total ? '#1b8a3a' : '#cc0000';
+  }, false);
+  document.getElementById('reset').addEventListener('click', function(){ location.reload(); }, false);
+  document.getElementById('solution').addEventListener('click', function(){ qs('.drop').forEach(function(d){d.textContent=d.dataset.answer; d.classList.add('filled','correct'); d.classList.remove('wrong');}); document.getElementById('wordbank').innerHTML=''; document.getElementById('feedback').textContent='✅ Lösung wurde angezeigt.'; document.getElementById('feedback').style.color='#1b8a3a';}, false);
+})();
+</script>
+</body>
+</html>
